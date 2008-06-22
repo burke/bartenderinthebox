@@ -59,6 +59,7 @@ class BartenderInTheBox
   
 end
 
+# Makeshift shell interface. To be replaced by rails-y goodness.
 if __FILE__ == $0
   b = BartenderInTheBox.new
 
