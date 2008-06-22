@@ -1,0 +1,2 @@
+class ReservoirsController < ApplicationController
+end
