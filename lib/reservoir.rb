@@ -1,5 +1,7 @@
 class Reservoir
 
+  attr_reader :bay, :contents
+  
   def initialize( bay, contents )
     @bay      = bay
     @contents = contents
@@ -12,9 +14,9 @@ class Reservoir
   end
 
   def dispense( ml )
-    self.open
+    open
     sleep( 0.06 * ml )
-    self.close
+    close
   end
 
   private #################
