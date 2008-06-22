@@ -1,0 +1,96 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'yaml'
+
+require 'lib/reservoir'
+
+
+class BartenderInTheBox
+  
+  def initialize
+    @drinks      = YAML.load(File.read('data/drinks.yml'))
+    @ingredients = YAML.load(File.read('data/ingredients.yml'))
+    @reservoirs  = YAML.load(File.read('data/reservoirs.yml'))
+
+    #update_reservoir_levels
+    calculate_available_drinks
+  end
+
+  def calculate_available_drinks
+    @available_drinks = {}
+
+    @drinks.each do |k,v|
+      pass = true
+      v[:ingredients].each do |ki,vi|
+        pass = false if !@ingredients_by_reservoir[ki]
+      end
+      @available_drinks.merge!({k => v}) if pass == true
+    end
+  end
+  
+  def mix( id )
+    if !@drinks.has_key? id
+      puts "Drink not recognized. Aborting."
+      return
+    end
+    drink = @drinks[id]
+    puts "Concocting one #{drink[:name]}. Please hold."
+    drink[:ingredients].each do |id, quantity|
+      pour id, quantity
+    end
+    puts "Mixing complete. Enjoy your #{drink[:name]}!"
+  end
+  
+  def pour( id, quantity )
+    reservoir = @ingredients_by_reservoir[id]
+    print "Activating Reservoir ##{reservoir} for #{quantity} mL of #{@ingredients[id][:name]}..."
+    # activate(reservoir, quantity)
+    $stdout.flush
+    sleep(1.0+(quantity*0.06))
+    puts " Done."
+  end
+
+  def list_available_drinks
+    @available_drinks.each do |k,v|
+      puts "#{v[:name]} (#{k})"
+    end
+  end
+
+  def list_reservoir_contents
+    @reservoirs.each do |k,v|
+      puts "#{k}: #{@ingredients[v][:name]}"
+    end
+  end
+  
+end
+
+if __FILE__ == $0
+  b = BartenderInTheBox.new
+
+  puts "BartenderInTheBox initialized. Type 'h' for help."
+  
+  loop do
+    print 'btb> '
+    case i = gets
+    when /^m/i:
+      b.mix(i.split(' ').last.to_i)
+    when /^l/i:
+      puts "== AVAILABLE DRINKS: ======="
+      b.list_available_drinks
+    when /^r/i:
+      puts "== RESERVOIR CONTENTS: ====="
+      b.list_reservoir_contents
+    when /^[xq]/i, nil:
+      exit(0)
+    else
+      puts "== AVAILABLE COMMANDS: ====="
+      puts "  h: this menu"
+      puts "  m <n>: Mix a drink"
+      puts "  l: List available drinks"
+      puts "  r: Show reservoir contents"
+      puts "  x: Exit program"
+    end
+  end
+  
+end

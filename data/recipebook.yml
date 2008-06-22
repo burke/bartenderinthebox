@@ -1,0 +1,21 @@
+White Russian:
+  :glass:     :old_fashioned
+  :ingredients:
+    :vodka:       2.0
+    :coffee_liq:  1.0
+    :milk:        1.0
+
+Gin and Tonic:
+  :glass:     :highball
+  :ingredients:
+    :gin:        2.0
+    :tonic:      5.0
+
+Rangers Rocker:
+  :glass:     :mason_jar
+  :ingredients:
+    :vodka:      2.0
+    :dark_rum:   2.0
+    :white_wine: 1.0
+    :water:      1.0
+

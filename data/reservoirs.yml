@@ -1,0 +1,33 @@
+---
+- !ruby/object:Reservoir
+	bay: 1
+	contents: 424
+	level: 375
+- !ruby/object:Reservoir
+	bay: 2
+	contents: 316
+	level: 375
+- !ruby/object:Reservoir
+	bay: 3
+	contents: 376
+	level: 375
+- !ruby/object:Reservoir
+	bay: 4
+	contents: 21
+	level: 375
+- !ruby/object:Reservoir
+	bay: 5
+	contents: 82
+	level: 375
+- !ruby/object:Reservoir
+	bay: 6
+	contents: 387
+	level: 375
+- !ruby/object:Reservoir
+	bay: 7
+	contents: 29
+	level: 375
+- !ruby/object:Reservoir
+	bay: 8
+	contents: 304
+	level: 375
