@@ -1,4 +1,4 @@
-require "#{BTB_ROOT}/reservoir"
+require "#{BTB_ROOT}/lib/reservoir"
 
 require 'rubygems'
 require 'yaml'
