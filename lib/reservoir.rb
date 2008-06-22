@@ -1,6 +1,7 @@
+# Maintains the state of a physical reservoir.
 class Reservoir
 
-  attr_reader :bay, :contents
+  attr_reader :bay, :contents, :level
   
   def initialize( bay, contents )
     @bay      = bay
