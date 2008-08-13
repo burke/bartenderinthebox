@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  ingredient_id: 1
-  bay: 1
-
-two:
-  ingredient_id: 1
-  bay: 1
