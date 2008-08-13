@@ -1,0 +1,13 @@
+<p>
+  <b>Ingredient:</b>
+  <%=h @reservoir.ingredient_id %>
+</p>
+
+<p>
+  <b>Bay:</b>
+  <%=h @reservoir.bay %>
+</p>
+
+
+<%= link_to 'Edit', edit_reservoir_path(@reservoir) %> |
+<%= link_to 'Back', reservoirs_path %>

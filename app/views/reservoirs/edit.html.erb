@@ -1,0 +1,20 @@
+<h1>Editing reservoir</h1>
+
+<% form_for(@reservoir) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :ingredient_id %><br />
+    <%= f.text_field :ingredient_id %>
+  </p>
+  <p>
+    <%= f.label :bay %><br />
+    <%= f.text_field :bay %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @reservoir %> |
+<%= link_to 'Back', reservoirs_path %>

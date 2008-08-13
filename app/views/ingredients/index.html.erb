@@ -1,7 +1,22 @@
-<ul id="ingredients">
-<% @ingredients.each do |i| %>
+<h1>Listing ingredients</h1>
 
-<li><%= link_to i.name, :action => 'show', :id => i %></li>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Percentage</th>
+  </tr>
 
+<% for ingredient in @ingredients %>
+  <tr>
+    <td><%=h ingredient.name %></td>
+    <td><%=h ingredient.percentage %></td>
+    <td><%= link_to 'Show', ingredient %></td>
+    <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
+    <td><%= link_to 'Destroy', ingredient, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
+
+<br />
+
+<%= link_to 'New ingredient', new_ingredient_path %>

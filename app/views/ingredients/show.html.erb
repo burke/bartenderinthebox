@@ -1,6 +1,13 @@
-<h3><%= @ingredient.name %></h3>
-<%= @ingredient.percentage %>% alcohol
+<p>
+  <b>Name:</b>
+  <%=h @ingredient.name %>
+</p>
 
-<hr />
+<p>
+  <b>Percentage:</b>
+  <%=h @ingredient.percentage %>
+</p>
 
-<%= link_to 'all ingredients', :controller => 'ingredients', :action => 'index' %>
+
+<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
+<%= link_to 'Back', ingredients_path %>
