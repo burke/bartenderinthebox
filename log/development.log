@@ -816,3 +816,321 @@ SGFzaHsABjoKQHVzZWR7AA==--8ed97ae43627262ca420905a3eff1ad99c33b004
   Parameters: {"action"=>"new", "controller"=>"drinks"}
 Rendering drinks/new
 Completed in 0.00775 (129 reqs/sec) | Rendering: 0.00282 (36%) | DB: 0.00000 (0%) | 200 OK [http://192.168.1.9/drinks/new]
+
+
+Processing DrinksController#index (for 192.168.1.18 at 2008-08-13 05:42:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlOGIxNjg5OGQ0MzJkODY0MWM0M2M0YjVjMjk1NGQw
+YWUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--b3dd882f035bcb9f214ef8058b58263b352ebd5a
+  Parameters: {"action"=>"index", "controller"=>"drinks"}
+  [4;35;1mDrink Load (0.000297)[0m   [0mSELECT * FROM "drinks" [0m
+Rendering drinks/index
+Completed in 0.00464 (215 reqs/sec) | Rendering: 0.00028 (5%) | DB: 0.00030 (6%) | 200 OK [http://192.168.1.9/]
+  [4;36;1mSQL (0.000532)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000202)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000237)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000191)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDrinks (20080813101454)
+  [4;36;1mSQL (0.000190)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000116)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table "drinks" already exists: CREATE TABLE "drinks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000210)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000117)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.008101)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.003871)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000139)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000075)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000078)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000071)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDrinks (20080813101454)
+  [4;36;1mSQL (0.000067)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003704)[0m   [0mCREATE TABLE "drinks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.002948)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080813101454')[0m
+Migrating to CreateIngredients (20080813101532)
+  [4;35;1mSQL (0.000124)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003580)[0m   [0;1mCREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "percentage" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.003525)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080813101532')[0m
+Migrating to CreateReservoirs (20080813101626)
+  [4;36;1mSQL (0.000156)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.004602)[0m   [0mCREATE TABLE "reservoirs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ingredient_id" integer DEFAULT NULL NULL, "bay" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.002979)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080813101626')[0m
+  [4;35;1mSQL (0.000195)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000239)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000051)[0m   [0mPRAGMA index_list("drinks")[0m
+  [4;36;1mSQL (0.000049)[0m   [0;1mPRAGMA index_list("ingredients")[0m
+  [4;35;1mSQL (0.000053)[0m   [0mPRAGMA index_list("reservoirs")[0m
+
+
+Processing IngredientsController#index (for 192.168.1.18 at 2008-08-13 05:45:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlOGIxNjg5OGQ0MzJkODY0MWM0M2M0YjVjMjk1NGQw
+YWUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--b3dd882f035bcb9f214ef8058b58263b352ebd5a
+  Parameters: {"action"=>"index", "controller"=>"ingredients"}
+  [4;36;1mIngredient Load (0.033041)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering ingredients/index
+Completed in 0.20982 (4 reqs/sec) | Rendering: 0.15879 (75%) | DB: 0.03304 (15%) | 200 OK [http://192.168.1.9/ingredients]
+  [4;36;1mSQL (0.000519)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000241)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000236)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateReservoirs (20080813101626)
+  [4;35;1mSQL (0.000206)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003850)[0m   [0;1mDROP TABLE "reservoirs"[0m
+  [4;35;1mSQL (0.002220)[0m   [0mDELETE FROM schema_migrations WHERE version = '20080813101626'[0m
+Migrating to CreateIngredients (20080813101532)
+  [4;36;1mSQL (0.000162)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002733)[0m   [0mDROP TABLE "ingredients"[0m
+  [4;36;1mSQL (0.002337)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080813101532'[0m
+Migrating to CreateDrinks (20080813101454)
+  [4;35;1mSQL (0.000126)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002508)[0m   [0;1mDROP TABLE "drinks"[0m
+  [4;35;1mSQL (0.002406)[0m   [0mDELETE FROM schema_migrations WHERE version = '20080813101454'[0m
+  [4;36;1mSQL (0.000108)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000072)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000351)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000079)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000066)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000064)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDrinks (20080813101454)
+  [4;36;1mSQL (0.000065)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000144)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.007363)[0m   [0;1mCREATE TABLE "drinks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.002832)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080813101454')[0m
+Migrating to CreateIngredients (20080813101532)
+  [4;36;1mSQL (0.000121)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003694)[0m   [0mCREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "percentage" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.002860)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080813101532')[0m
+Migrating to CreateReservoirs (20080813101626)
+  [4;35;1mSQL (0.000155)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003886)[0m   [0;1mCREATE TABLE "reservoirs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ingredient_id" integer DEFAULT NULL NULL, "bay" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.002889)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080813101626')[0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000239)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mPRAGMA index_list("drinks")[0m
+  [4;35;1mSQL (0.000049)[0m   [0mPRAGMA index_list("ingredients")[0m
+  [4;36;1mSQL (0.000047)[0m   [0;1mPRAGMA index_list("reservoirs")[0m
+
+
+Processing DrinksController#index (for 192.168.1.18 at 2008-08-13 05:49:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlOGIxNjg5OGQ0MzJkODY0MWM0M2M0YjVjMjk1NGQw
+YWUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--b3dd882f035bcb9f214ef8058b58263b352ebd5a
+  Parameters: {"action"=>"index", "controller"=>"drinks"}
+  [4;35;1mDrink Load (0.400533)[0m   [0mSELECT * FROM "drinks" [0m
+Rendering drinks/index
+Completed in 2.30123 (0 reqs/sec) | Rendering: 1.75139 (76%) | DB: 0.40053 (17%) | 200 OK [http://192.168.1.9/drinks]
+  [4;36;1mSQL (0.000561)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000209)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000190)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDrinks (20080813101454)
+  [4;36;1mSQL (0.000191)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateIngredients (20080813101532)
+  [4;35;1mSQL (0.000191)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateReservoirs (20080813101626)
+  [4;36;1mSQL (0.000191)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipeItems (20080813105252)
+  [4;35;1mSQL (0.000190)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000118)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000545)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000201)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000191)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000190)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDrinks (20080813101454)
+  [4;36;1mSQL (0.000191)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateIngredients (20080813101532)
+  [4;35;1mSQL (0.000191)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateReservoirs (20080813101626)
+  [4;36;1mSQL (0.000189)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipeItems (20080813105252)
+  [4;35;1mSQL (0.000190)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.010631)[0m   [0mCREATE TABLE "recipe_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "drink_id" integer DEFAULT NULL NULL, "ingredient_id" integer DEFAULT NULL NULL, "quantity" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.003011)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080813105252')[0m
+  [4;35;1mSQL (0.000230)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000338)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000050)[0m   [0mPRAGMA index_list("drinks")[0m
+  [4;36;1mSQL (0.000049)[0m   [0;1mPRAGMA index_list("ingredients")[0m
+  [4;35;1mSQL (0.000048)[0m   [0mPRAGMA index_list("recipe_items")[0m
+  [4;36;1mSQL (0.000049)[0m   [0;1mPRAGMA index_list("reservoirs")[0m
+
+
+Processing DrinksController#index (for 192.168.1.18 at 2008-08-13 05:57:50) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlOGIxNjg5OGQ0MzJkODY0MWM0M2M0YjVjMjk1NGQw
+YWUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--b3dd882f035bcb9f214ef8058b58263b352ebd5a
+  Parameters: {"action"=>"index", "controller"=>"drinks"}
+  [4;36;1mDrink Load (0.353372)[0m   [0;1mSELECT * FROM "drinks" [0m
+Rendering drinks/index
+Completed in 2.20916 (0 reqs/sec) | Rendering: 1.70724 (77%) | DB: 0.35337 (15%) | 200 OK [http://192.168.1.9/drinks]
+
+
+Processing IngredientsController#index (for 192.168.1.18 at 2008-08-13 05:58:06) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlOGIxNjg5OGQ0MzJkODY0MWM0M2M0YjVjMjk1NGQw
+YWUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--b3dd882f035bcb9f214ef8058b58263b352ebd5a
+  Parameters: {"action"=>"index", "controller"=>"ingredients"}
+  [4;35;1mIngredient Load (0.034310)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering ingredients/index
+Completed in 0.16808 (5 reqs/sec) | Rendering: 0.11509 (68%) | DB: 0.03431 (20%) | 200 OK [http://192.168.1.9/ingredients]
+  [4;36;1mIngredient Load (0.034331)[0m   [0;1mSELECT * FROM "ingredients" [0m
+  [4;35;1mIngredient Load (0.032989)[0m   [0mSELECT * FROM "ingredients" [0m
+  [4;36;1mIngredient Load (0.033997)[0m   [0;1mSELECT * FROM "ingredients" [0m
+  [4;35;1mIngredient Load (0.032790)[0m   [0mSELECT * FROM "ingredients" [0m
+  [4;36;1mDrink Load (0.000131)[0m   [0;1mSELECT "drinks".* FROM "drinks" INNER JOIN recipe_items ON drinks.id = recipe_items.drink_id WHERE (("recipe_items".ingredient_id = 1)) [0m
+  [4;36;1mSQL (0.000548)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000282)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000234)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipeItems (20080813105252)
+  [4;35;1mSQL (0.000227)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.007478)[0m   [0;1mDROP TABLE "recipe_items"[0m
+  [4;35;1mSQL (0.002963)[0m   [0mDELETE FROM schema_migrations WHERE version = '20080813105252'[0m
+Migrating to CreateReservoirs (20080813101626)
+  [4;36;1mSQL (0.000193)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003390)[0m   [0mDROP TABLE "reservoirs"[0m
+  [4;36;1mSQL (0.002996)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080813101626'[0m
+Migrating to CreateIngredients (20080813101532)
+  [4;35;1mSQL (0.000163)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003409)[0m   [0;1mDROP TABLE "ingredients"[0m
+  [4;35;1mSQL (0.002896)[0m   [0mDELETE FROM schema_migrations WHERE version = '20080813101532'[0m
+Migrating to CreateDrinks (20080813101454)
+  [4;36;1mSQL (0.000126)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.004040)[0m   [0mDROP TABLE "drinks"[0m
+  [4;36;1mSQL (0.002875)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080813101454'[0m
+  [4;35;1mSQL (0.000111)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000072)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000128)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000351)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000078)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000068)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000065)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000077)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateDrinks (20080813101454)
+  [4;35;1mSQL (0.000072)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.008728)[0m   [0mCREATE TABLE "drinks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.003098)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080813101454')[0m
+Migrating to CreateIngredients (20080813101532)
+  [4;35;1mSQL (0.000120)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003227)[0m   [0;1mCREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "percentage" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.003165)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080813101532')[0m
+Migrating to CreateReservoirs (20080813101626)
+  [4;36;1mSQL (0.000156)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003578)[0m   [0mCREATE TABLE "reservoirs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ingredient_id" integer DEFAULT NULL NULL, "bay" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.002662)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080813101626')[0m
+Migrating to CreateRecipeItems (20080813105252)
+  [4;35;1mSQL (0.000190)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003797)[0m   [0;1mCREATE TABLE "recipe_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "drink_id" integer DEFAULT NULL NULL, "ingredient_id" integer DEFAULT NULL NULL, "quantity" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.003045)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080813105252')[0m
+  [4;36;1mSQL (0.000295)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000318)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000050)[0m   [0;1mPRAGMA index_list("drinks")[0m
+  [4;35;1mSQL (0.000048)[0m   [0mPRAGMA index_list("ingredients")[0m
+  [4;36;1mSQL (0.000050)[0m   [0;1mPRAGMA index_list("recipe_items")[0m
+  [4;35;1mSQL (0.000049)[0m   [0mPRAGMA index_list("reservoirs")[0m
+  [4;36;1mSQL (0.000212)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000136)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.007317)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.003892)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000075)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000067)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000065)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateDrinks (20080813101454)
+  [4;35;1mSQL (0.000064)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003675)[0m   [0;1mCREATE TABLE "drinks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.003459)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080813101454')[0m
+Migrating to CreateIngredients (20080813101532)
+  [4;36;1mSQL (0.000126)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003625)[0m   [0mCREATE TABLE "ingredients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "percentage" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.003223)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080813101532')[0m
+Migrating to CreateReservoirs (20080813101626)
+  [4;35;1mSQL (0.000155)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.003867)[0m   [0;1mCREATE TABLE "reservoirs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ingredient_id" integer DEFAULT NULL NULL, "bay" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.003267)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080813101626')[0m
+Migrating to CreateRecipeItems (20080813105252)
+  [4;36;1mSQL (0.000198)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003605)[0m   [0mCREATE TABLE "recipe_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "drink_id" integer DEFAULT NULL NULL, "ingredient_id" integer DEFAULT NULL NULL, "quantity" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.003038)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080813105252')[0m
+  [4;35;1mSQL (0.000230)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000051)[0m   [0mPRAGMA index_list("drinks")[0m
+  [4;36;1mSQL (0.000050)[0m   [0;1mPRAGMA index_list("ingredients")[0m
+  [4;35;1mSQL (0.000056)[0m   [0mPRAGMA index_list("recipe_items")[0m
+  [4;36;1mSQL (0.000049)[0m   [0;1mPRAGMA index_list("reservoirs")[0m
+
+
+Processing IngredientsController#index (for 192.168.1.18 at 2008-08-13 06:08:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlOGIxNjg5OGQ0MzJkODY0MWM0M2M0YjVjMjk1NGQw
+YWUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--b3dd882f035bcb9f214ef8058b58263b352ebd5a
+  Parameters: {"action"=>"index", "controller"=>"ingredients"}
+  [4;36;1mIngredient Load (0.034192)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering ingredients/index
+Completed in 0.29276 (3 reqs/sec) | Rendering: 0.23978 (81%) | DB: 0.03419 (11%) | 200 OK [http://192.168.1.9/ingredients]
+  [4;36;1mIngredient Load (0.000514)[0m   [0;1mSELECT * FROM "ingredients" LIMIT 1[0m
+  [4;35;1mIngredient Load (0.000234)[0m   [0mSELECT * FROM "ingredients" LIMIT 1[0m
+  [4;36;1mDrink Load (0.007559)[0m   [0;1mSELECT "drinks".* FROM "drinks" INNER JOIN recipe_items ON drinks.id = recipe_items.drink_id WHERE (("recipe_items".ingredient_id = 1)) [0m
+  [4;35;1mDrink Load (0.000243)[0m   [0mSELECT * FROM "drinks" LIMIT 1[0m
+  [4;36;1mIngredient Load (0.004639)[0m   [0;1mSELECT "ingredients".* FROM "ingredients" INNER JOIN recipe_items ON ingredients.id = recipe_items.ingredient_id WHERE (("recipe_items".drink_id = 1)) [0m
+  [4;35;1mDrink Load (0.000281)[0m   [0mSELECT * FROM "drinks" LIMIT 1[0m
+  [4;36;1mIngredient Load (0.004682)[0m   [0;1mSELECT "ingredients".* FROM "ingredients" INNER JOIN recipe_items ON ingredients.id = recipe_items.ingredient_id WHERE (("recipe_items".drink_id = 1)) [0m
+  [4;35;1mSQL (0.000279)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m

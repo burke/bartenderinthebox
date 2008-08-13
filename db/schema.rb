@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 20080813105252) do
 
   create_table "drinks", :force => true do |t|
     t.string   "name"
@@ -18,8 +18,18 @@ ActiveRecord::Schema.define(:version => 3) do
   end
 
   create_table "ingredients", :force => true do |t|
-    t.string  "name"
-    t.integer "percentage"
+    t.string   "name"
+    t.integer  "percentage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recipe_items", :force => true do |t|
+    t.integer  "drink_id"
+    t.integer  "ingredient_id"
+    t.string   "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reservoirs", :force => true do |t|
