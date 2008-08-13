@@ -6,4 +6,8 @@ class Reservoir < ActiveRecord::Base
     # Dispense fluid...
   end
 
+  def after_save
+    Drink.expire_availability_cache
+  end
+  
 end

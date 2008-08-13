@@ -2,7 +2,7 @@ class DrinksController < ApplicationController
   # GET /drinks
   # GET /drinks.xml
   def index
-    @drinks = Drink.find(:all)
+    @drinks = Drink.find_all_available
 
     respond_to do |format|
       format.html # index.html.erb
