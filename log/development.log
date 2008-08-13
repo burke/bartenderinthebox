@@ -799,3 +799,20 @@ ActionController::UnknownAction (No action responded to index):
     ./script/server:3
 
 Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing DrinksController#index (for 192.168.1.18 at 2008-08-13 05:17:06) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--8ed97ae43627262ca420905a3eff1ad99c33b004
+  Parameters: {"action"=>"index", "controller"=>"drinks"}
+  [4;36;1mDrink Load (0.000391)[0m   [0;1mSELECT * FROM "drinks" [0m
+Rendering drinks/index
+Completed in 0.00559 (178 reqs/sec) | Rendering: 0.00089 (15%) | DB: 0.00039 (6%) | 200 OK [http://192.168.1.9/]
+
+
+Processing DrinksController#new (for 192.168.1.18 at 2008-08-13 05:17:08) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--8ed97ae43627262ca420905a3eff1ad99c33b004
+  Parameters: {"action"=>"new", "controller"=>"drinks"}
+Rendering drinks/new
+Completed in 0.00775 (129 reqs/sec) | Rendering: 0.00282 (36%) | DB: 0.00000 (0%) | 200 OK [http://192.168.1.9/drinks/new]
