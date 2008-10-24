@@ -6,6 +6,7 @@ BTB_ROOT = File.dirname(__FILE__)
 require 'rubygems'
 require 'yaml'
 require 'readline'
+require 'logger'
 
 require "#{BTB_ROOT}/lib/booze_monkey"
 
@@ -15,9 +16,12 @@ INGREDIENTS = YAML.load(File.read("#{BTB_ROOT}/data/ingredients.yml"))
 # BartenderInTheBox instructs the BoozeMonkey how to pour drinks, manages recipes
 class BartenderInTheBox
 
+  attr_reader :available_drinks
+
   def initialize
     @boozemonkey = BoozeMonkey.new
-
+    $log = Logger.new(STDOUT)
+    $log.level = Logger::DEBUG
     calculate_available_drinks
   end
 
@@ -37,28 +41,17 @@ class BartenderInTheBox
 
   def mix( id )
     if !DRINKS.has_key? id
-      puts "Drink not recognized. Aborting."
+      $log.error "Invalid Drink Specified (#{id})"
       return
     end
     drink = DRINKS[id]
-    puts "Concocting one #{drink[:name]}. Please hold."
+    $log.info "Concocting one #{drink[:name]}. Please hold."
     @boozemonkey.dispense( drink[:ingredients] )
-
-#     drink[:ingredients].each do |id, quantity|
-#        @boozemonkey.dispense( id, quantity )
-#     end
-    puts "Mixing complete. Enjoy your #{drink[:name]}!"
+    $log.info "Mixing complete. Enjoy your #{drink[:name]}!"
   end
 
-
-  def list_available_drinks
-    @available_drinks.each do |k,v|
-      puts "#{v[:name]} (#{k})"
-    end
-  end
-
-  def list_reservoir_contents
-    @boozemonkey.show_fancy_inventory
+  def reservoir_contents
+    @boozemonkey.inventory_a
   end
 
 end
@@ -74,10 +67,14 @@ if __FILE__ == $0
       b.mix(i.split(' ').last.to_i)
     when /^l/i:
       puts "== AVAILABLE DRINKS: ======="
-      b.list_available_drinks
+      b.available_drinks.each do |id,attrs|
+        puts "#{attrs[:name]} (#{id})"
+      end
     when /^r/i:
       puts "== RESERVOIR CONTENTS: ====="
-      b.list_reservoir_contents
+      b.reservoir_contents.each do |res|
+        puts res.inspect
+      end
     when /^[xq]/i, nil:
       exit(0)
     when /^\w/:

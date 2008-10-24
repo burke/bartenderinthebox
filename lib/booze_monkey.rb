@@ -18,9 +18,9 @@ class BoozeMonkey
     ingredients.each do |id, quantity|
       threads << Thread.new do
         reservoir = reservoir_by_contents( id )
-        puts "Activating Reservoir ##{reservoir.bay} for #{quantity} mL of #{reservoir.contents}."
+        $log.debug "Activating Reservoir ##{reservoir.bay} for #{quantity} mL of #{reservoir.contents}."
         reservoir.dispense( quantity )
-        puts "Finished dispensing #{reservoir.contents}"
+        $log.debug "Finished dispensing #{reservoir.contents}"
       end
     end
     threads.map{ |t| t.join }
@@ -31,11 +31,15 @@ class BoozeMonkey
     return ingredients
   end
 
-  def show_fancy_inventory
-    @reservoirs.each do |res|
-      puts "Reservoir ##{res.bay}: #{res.level}mL of #{res.contents} (#{INGREDIENTS[res.contents][:name]})"
+  def inventory_a
+    @reservoirs.map do |res|
+      {res.bay => {
+        :contents_id => res.contents,
+        :contents_name => INGREDIENTS[res.contents][:name] }}
     end
   end
+
+
 
   private ###########################
 
