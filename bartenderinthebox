@@ -1,0 +1,93 @@
+#!/usr/bin/env ruby
+# -*- ruby -*-
+
+BTB_ROOT = File.dirname(__FILE__)
+
+require 'rubygems'
+require 'yaml'
+require 'readline'
+
+require "#{BTB_ROOT}/lib/booze_monkey"
+
+DRINKS      = YAML.load(File.read("#{BTB_ROOT}/data/drinks.yml"))
+INGREDIENTS = YAML.load(File.read("#{BTB_ROOT}/data/ingredients.yml"))
+
+# BartenderInTheBox instructs the BoozeMonkey how to pour drinks, manages recipes
+class BartenderInTheBox
+
+  def initialize
+    @boozemonkey = BoozeMonkey.new
+
+    calculate_available_drinks
+  end
+
+  def calculate_available_drinks
+    @available_drinks = {}
+
+    inventory = @boozemonkey.inventory
+
+    DRINKS.each do |id,drink|
+      pass = true
+      drink[:ingredients].each do |ingred_id,ingred_quantity|
+        pass = false if !inventory.index(ingred_id)
+      end
+      @available_drinks.merge!({id => drink}) if pass == true
+    end
+  end
+
+  def mix( id )
+    if !DRINKS.has_key? id
+      puts "Drink not recognized. Aborting."
+      return
+    end
+    drink = DRINKS[id]
+    puts "Concocting one #{drink[:name]}. Please hold."
+    @boozemonkey.dispense( drink[:ingredients] )
+
+#     drink[:ingredients].each do |id, quantity|
+#        @boozemonkey.dispense( id, quantity )
+#     end
+    puts "Mixing complete. Enjoy your #{drink[:name]}!"
+  end
+
+
+  def list_available_drinks
+    @available_drinks.each do |k,v|
+      puts "#{v[:name]} (#{k})"
+    end
+  end
+
+  def list_reservoir_contents
+    @boozemonkey.show_fancy_inventory
+  end
+
+end
+
+if __FILE__ == $0
+  b = BartenderInTheBox.new
+
+  puts "BartenderInTheBox initialized. Type 'h' for help."
+
+  loop do
+    case i = Readline::readline('btb> ')
+    when /^m/i:
+      b.mix(i.split(' ').last.to_i)
+    when /^l/i:
+      puts "== AVAILABLE DRINKS: ======="
+      b.list_available_drinks
+    when /^r/i:
+      puts "== RESERVOIR CONTENTS: ====="
+      b.list_reservoir_contents
+    when /^[xq]/i, nil:
+      exit(0)
+    when /^\w/:
+      puts "== AVAILABLE COMMANDS: ====="
+      puts "  h: this menu"
+      puts "  m <n>: Mix a drink"
+      puts "  l: List available drinks"
+      puts "  r: Show reservoir contents"
+      puts "  x: Exit program"
+    end
+  end
+
+end
