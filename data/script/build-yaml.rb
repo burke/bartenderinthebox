@@ -8,6 +8,9 @@ require 'yaml'
 require 'libxml'
 include LibXML
 
+
+DATA_PATH = File.join(File.dirname(__FILE__), '/..')
+
 def to_float( str )
   str.sub!(/(\d+)\/(\d+)/) do |m|
     $1.to_f / $2.to_f
@@ -53,10 +56,10 @@ def to_ml( mamount, amount, measure )
 end
 
 
-CATEGORIES  = YAML.load(open('categories.yml'))
-INGREDIENTS = YAML.load(open('ingredients_xml_to_ids.yml'))
+CATEGORIES  = YAML.load(open(File.join(DATA_PATH,'/categories.yml')))
+INGREDIENTS = YAML.load(open(File.join(DATA_PATH,'/ingredients_xml_to_ids.yml')))
 
-doc = XML::Document.file('drinks.xml').root
+doc = XML::Document.file(File.join(DATA_PATH,'/drinks.xml')).root
 
 drinks = { }
 doc.find('Drink').each do |drink|
@@ -70,8 +73,7 @@ doc.find('Drink').each do |drink|
       ingred_format_fail = true
     end
     ingredients << {
-      :name    => INGREDIENTS[ingredient['Name'].strip],
-      :amount  => amount
+      INGREDIENTS[ingredient['Name'].strip] => amount
     }
   end
 
@@ -95,6 +97,6 @@ end
 
 puts "Finished parsing drinks. Generating YAML."
 
-File.open('drinks.yml','w') do |file|
+File.open(File.join(DATA_PATH,'drinks.yml'),'w') do |file|
   file.puts YAML.dump(drinks)
 end
