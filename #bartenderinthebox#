@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+# -*- ruby -*-
+
+BTB_ROOT = File.dirname(__FILE__)
+
+require 'rubygems'
+require 'yaml'
+require 'readline'
+require 'logger'
+require 'activerecord'
+
+Dir.glob("#{BTB_ROOT}/models/*.rb").map{ |file| require file }
+ActiveRecord::Base.establish_connection(YAML.load(open("#{BTB_ROOT}/data/database.yml")))
+
+class BartenderInTheBox
+  attr_reader :available_drinks
+
+  def initialize
+    $log = Logger.new(STDOUT)
+    $log.level = Logger::DEBUG
+    calculate_available_drinks
+  end
+
+  def calculate_available_drinks
+    @available_drinks = Drink.find_available
+  end
+
+end
+
+if __FILE__ == $0
+  require 'lib/cli_interface'
+  CLI_INTERFACE::run
+end

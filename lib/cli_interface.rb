@@ -9,15 +9,15 @@ module CLI_INTERFACE
     loop do
       case i = Readline::readline('btb> ')
       when /^m/i:
-          b.mix(i.split(' ').last.to_i)
+          Drink.find(i.split(' ').last.to_i).mix
       when /^l/i:
           puts "== AVAILABLE DRINKS: ======="
         b.available_drinks.each do |drink|
-          puts "#{drink.name} (#{drink.id}) : #{drink.ingredients}"
+          puts "#{drink.name} (#{drink.id}) : #{drink.ingredients.map do |i| i.name end.join(',')}"
         end
       when /^r/i:
           puts "== RESERVOIR CONTENTS: ====="
-        puts Reservoir.find(:all).inspect
+        puts Reservoir.find(:all).map{|r| "#{r.bay} : #{Ingredient.find(r.ingredient_id).name}"}
       when /^[xq]/i, nil:
           exit(0)
       when /^\w/:
