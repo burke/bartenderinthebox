@@ -9,13 +9,10 @@ require 'readline'
 require 'logger'
 require 'activerecord'
 
-Dir.glob("#{BTB_ROOT}/lib/*.rb").map{    |file| require file }
 Dir.glob("#{BTB_ROOT}/models/*.rb").map{ |file| require file }
-
 ActiveRecord::Base.establish_connection(YAML.load(open("#{BTB_ROOT}/data/database.yml")))
 
 class BartenderInTheBox
-
   attr_reader :available_drinks
 
   def initialize
@@ -31,7 +28,6 @@ class BartenderInTheBox
   def mix( id )
     drink = Drink.find(id)
     $log.info "Starting mixing of D##{id} (#{drink.name})"
-
     threads = []
     drink.recipe_items.each do |r_item|
       threads << Thread.new do
@@ -43,38 +39,10 @@ class BartenderInTheBox
     end
     threads.map{ |t| t.join }
     $log.info "Finished mixing D##{id} (#{drink.name})"
-
   end
-
 end
 
 if __FILE__ == $0
-  b = BartenderInTheBox.new
-
-  puts "BartenderInTheBox initialized. Type 'h' for help."
-
-  loop do
-    case i = Readline::readline('btb> ')
-    when /^m/i:
-      b.mix(i.split(' ').last.to_i)
-    when /^l/i:
-      puts "== AVAILABLE DRINKS: ======="
-      b.available_drinks.each do |drink|
-        puts "#{drink.name} (#{drink.id}) : #{drink.ingredients}"
-      end
-    when /^r/i:
-      puts "== RESERVOIR CONTENTS: ====="
-      puts Reservoir.find(:all).inspect
-    when /^[xq]/i, nil:
-      exit(0)
-    when /^\w/:
-      puts "== AVAILABLE COMMANDS: ====="
-      puts "  h: this menu"
-      puts "  m <n>: Mix a drink"
-      puts "  l: List available drinks"
-      puts "  r: Show reservoir contents"
-      puts "  x: Exit program"
-    end
-  end
-
+  require 'lib/cli_interface'
+  CLI_INTERFACE::run
 end
