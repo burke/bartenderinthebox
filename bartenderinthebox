@@ -8,7 +8,7 @@ require 'yaml'
 require 'readline'
 require 'logger'
 
-require "#{BTB_ROOT}/lib/booze_monkey"
+Dir.glob("#{BTB_ROOT}/lib/*.rb").map{ |file| require file }
 
 DRINKS      = YAML.load(File.read("#{BTB_ROOT}/data/drinks.yml"))
 INGREDIENTS = YAML.load(File.read("#{BTB_ROOT}/data/ingredients.yml"))
@@ -41,17 +41,17 @@ class BartenderInTheBox
 
   def mix( id )
     if !DRINKS.has_key? id
-      $log.error "Invalid Drink Specified (#{id})"
+      $log.error "Invalid Drink Specified (D##{id})"
       return
     end
     drink = DRINKS[id]
-    $log.info "Concocting one #{drink[:name]}. Please hold."
+    $log.info "Starting mixing of D##{id} (#{drink[:name]})"
     @boozemonkey.dispense( drink[:ingredients] )
-    $log.info "Mixing complete. Enjoy your #{drink[:name]}!"
+    $log.info "Finished mixing D##{id} (#{drink[:name]})"
   end
 
   def reservoir_contents
-    @boozemonkey.inventory_a
+    @boozemonkey.reservoir_contents
   end
 
 end
