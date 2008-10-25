@@ -37,7 +37,7 @@ class BartenderInTheBox
         $log.debug "Finished dispensing I##{r_item.ingredient_id}"
       end
     end
-    threads.map{ |t| t.join }
+    threads.each{ |t| t.join }
     $log.info "Finished mixing D##{id} (#{drink.name})"
   end
 end
