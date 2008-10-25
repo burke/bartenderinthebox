@@ -9,7 +9,7 @@ require 'libxml'
 include LibXML
 
 
-DATA_PATH = File.join(File.dirname(__FILE__), '/..')
+DATA_PATH = File.join(File.dirname(__FILE__), '/../data')
 
 def to_float( str )
   str.sub!(/(\d+)\/(\d+)/) do |m|
