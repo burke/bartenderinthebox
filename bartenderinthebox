@@ -7,51 +7,43 @@ require 'rubygems'
 require 'yaml'
 require 'readline'
 require 'logger'
+require 'activerecord'
 
-Dir.glob("#{BTB_ROOT}/lib/*.rb").map{ |file| require file }
+Dir.glob("#{BTB_ROOT}/lib/*.rb").map{    |file| require file }
+Dir.glob("#{BTB_ROOT}/models/*.rb").map{ |file| require file }
 
-DRINKS      = YAML.load(File.read("#{BTB_ROOT}/data/drinks.yml"))
-INGREDIENTS = YAML.load(File.read("#{BTB_ROOT}/data/ingredients.yml"))
+ActiveRecord::Base.establish_connection(YAML.load(open("#{BTB_ROOT}/data/database.yml")))
 
-# BartenderInTheBox instructs the BoozeMonkey how to pour drinks, manages recipes
 class BartenderInTheBox
 
   attr_reader :available_drinks
 
   def initialize
-    @boozemonkey = BoozeMonkey.new
     $log = Logger.new(STDOUT)
     $log.level = Logger::DEBUG
     calculate_available_drinks
   end
 
   def calculate_available_drinks
-    @available_drinks = {}
-
-    inventory = @boozemonkey.inventory
-
-    DRINKS.each do |id,drink|
-      pass = true
-      drink[:ingredients].each do |ingred_id,ingred_quantity|
-        pass = false if !inventory.index(ingred_id)
-      end
-      @available_drinks.merge!({id => drink}) if pass == true
-    end
+    @available_drinks = Drink.find_available
   end
 
   def mix( id )
-    if !DRINKS.has_key? id
-      $log.error "Invalid Drink Specified (D##{id})"
-      return
-    end
-    drink = DRINKS[id]
-    $log.info "Starting mixing of D##{id} (#{drink[:name]})"
-    @boozemonkey.dispense( drink[:ingredients] )
-    $log.info "Finished mixing D##{id} (#{drink[:name]})"
-  end
+    drink = Drink.find(id)
+    $log.info "Starting mixing of D##{id} (#{drink.name})"
 
-  def reservoir_contents
-    @boozemonkey.reservoir_contents
+    threads = []
+    drink.recipe_items.each do |r_item|
+      threads << Thread.new do
+        reservoir = Reservoir.find_by_ingredient_id(r_item.ingredient_id)
+        $log.debug "Activating Reservoir R##{reservoir.bay} for #{r_item.quantity} mL of I##{r_item.ingredient_id}."
+        reservoir.dispense( r_item.quantity )
+        $log.debug "Finished dispensing I##{r_item.ingredient_id}"
+      end
+    end
+    threads.map{ |t| t.join }
+    $log.info "Finished mixing D##{id} (#{drink.name})"
+
   end
 
 end
@@ -67,14 +59,12 @@ if __FILE__ == $0
       b.mix(i.split(' ').last.to_i)
     when /^l/i:
       puts "== AVAILABLE DRINKS: ======="
-      b.available_drinks.each do |id,attrs|
-        puts "#{attrs[:name]} (#{id})"
+      b.available_drinks.each do |drink|
+        puts "#{drink.name} (#{drink.id}) : #{drink.ingredients}"
       end
     when /^r/i:
       puts "== RESERVOIR CONTENTS: ====="
-      b.reservoir_contents.each do |res|
-        puts res.inspect
-      end
+      puts Reservoir.find(:all).inspect
     when /^[xq]/i, nil:
       exit(0)
     when /^\w/:

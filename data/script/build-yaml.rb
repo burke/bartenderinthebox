@@ -79,7 +79,7 @@ doc.find('Drink').each do |drink|
 
   category = CATEGORIES[drink.find('Categories/Category').to_a.first['Name']] rescue 2 # Unkown / Other
 
-  next if ingred_format_fail # We're not going to put up with this shit.
+  next if ingred_format_fail or ingredients == [] # We're not going to put up with this shit.
 
   drink_id = drink['ID'].to_i
 

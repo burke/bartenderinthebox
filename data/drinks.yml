@@ -12507,12 +12507,6 @@
   - 201: 15.0
   :name: CINNAMON MARTINI
   :category: 1
-20620: 
-  :glass: 2
-  :ingredients: []
-
-  :name: ANGEL DEW
-  :category: 4
 14472: 
   :glass: 3
   :ingredients: 
@@ -13164,12 +13158,6 @@
   - 68: 15.0
   :name: CINNAMON PUNCH (1ST)
   :category: 1
-20627: 
-  :glass: 2
-  :ingredients: []
-
-  :name: B B G
-  :category: 4
 2182: 
   :glass: 2
   :ingredients: 
@@ -16522,12 +16510,6 @@
   - 96: 15.0
   :name: APPLEJACK COCKTAIL
   :category: 1
-20660: 
-  :glass: 2
-  :ingredients: []
-
-  :name: I'M WAITING
-  :category: 4
 18611: 
   :glass: 24
   :ingredients: 
@@ -21292,14 +21274,6 @@
   - 285: 15.0
   :name: REATHA'S RELAXER
   :category: 1
-4310: 
-  :glass: 15
-  :ingredients: 
-  - 78: 30.0
-  - 36: 30.0
-  - 92: 60.0
-  :name: MARMALADE COCKTAIL
-  :category: 3
 211: 
   :glass: 15
   :ingredients: 
@@ -21308,6 +21282,14 @@
   - 20: 15.0
   - 96: 8.0
   :name: BETWEEN-THE-SHEETS
+  :category: 3
+4310: 
+  :glass: 15
+  :ingredients: 
+  - 78: 30.0
+  - 36: 30.0
+  - 92: 60.0
+  :name: MARMALADE COCKTAIL
   :category: 3
 8409: 
   :glass: 13
@@ -22047,12 +22029,6 @@
   - 407: 1.0
   :name: KING COLE
   :category: 3
-26863: 
-  :glass: 2
-  :ingredients: []
-
-  :name: LA BANDIERA ITALIANA
-  :category: 5
 4319: 
   :glass: 4
   :ingredients: 
@@ -25295,12 +25271,6 @@
   - 9: 20.0
   - 68: 10.0
   :name: COCONUT HURRICANE (2ND)
-  :category: 1
-16648: 
-  :glass: 15
-  :ingredients: []
-
-  :name: BOURBON SOCIETY
   :category: 1
 24846: 
   :glass: 15
@@ -30021,15 +29991,6 @@
   - 150: 30.0
   :name: PEPPERMINT CRISP
   :category: 8
-26944: 
-  :glass: 1
-  :ingredients: 
-  - 95: 20.0
-  - 180: 50.0
-  - 43: 10.0
-  - 68: 20.0
-  :name: MARSBLIZZARD
-  :category: 5
 18746: 
   :glass: 24
   :ingredients: 
@@ -30045,6 +30006,15 @@
   - 62: 15.0
   :name: CRANBERRY COOLER (FROZEN)
   :category: 8
+26944: 
+  :glass: 1
+  :ingredients: 
+  - 95: 20.0
+  - 180: 50.0
+  - 43: 10.0
+  - 68: 20.0
+  :name: MARSBLIZZARD
+  :category: 5
 20796: 
   :glass: 1
   :ingredients: 
@@ -34098,13 +34068,6 @@
   - 7: 38.0
   :name: WALTON'S BLOWJOB
   :category: 2
-10591: 
-  :glass: 15
-  :ingredients: 
-  - 73: 30.0
-  - 92: 60.0
-  :name: MARTIAN MARTINI
-  :category: 1
 2393: 
   :glass: 20
   :ingredients: 
@@ -34119,6 +34082,13 @@
   - 292: 360.0
   - 53: 90.0
   :name: KAHLUA FUDGE SHAKE
+  :category: 1
+10591: 
+  :glass: 15
+  :ingredients: 
+  - 73: 30.0
+  - 92: 60.0
+  :name: MARTIAN MARTINI
   :category: 1
 22888: 
   :glass: 1
@@ -41850,13 +41820,6 @@
   - 223: 20.0
   :name: GREEN GRASS
   :category: 1
-25020: 
-  :glass: 15
-  :ingredients: 
-  - 394: 30.0
-  - 263: 30.0
-  :name: MARSIGLIESE
-  :category: 3
 426: 
   :glass: 15
   :ingredients: 
@@ -41887,6 +41850,13 @@
   - 15: 23.0
   :name: CORTISONE
   :category: 4
+25020: 
+  :glass: 15
+  :ingredients: 
+  - 394: 30.0
+  - 263: 30.0
+  :name: MARSIGLIESE
+  :category: 3
 27070: 
   :glass: 15
   :ingredients: 
@@ -55495,14 +55465,6 @@
   - 32: 30.0
   :name: ROOTBEER
   :category: 1
-25172: 
-  :glass: 1
-  :ingredients: 
-  - 68: 90.0
-  - 424: 30.0
-  - 679: 30.0
-  :name: MARRAKESH
-  :category: 1
 16974: 
   :glass: 24
   :ingredients: 
@@ -55519,6 +55481,14 @@
   - 97: 23.0
   :name: BLOOD AND SAND NO 2
   :category: 3
+25172: 
+  :glass: 1
+  :ingredients: 
+  - 68: 90.0
+  - 424: 30.0
+  - 679: 30.0
+  :name: MARRAKESH
+  :category: 1
 23123: 
   :glass: 15
   :ingredients: 
@@ -57544,6 +57514,13 @@
   - 53: 90.0
   :name: PINK
   :category: 5
+602: 
+  :glass: 15
+  :ingredients: 
+  - 334: 15.0
+  - 141: 30.0
+  :name: COWBOY COCKTAIL
+  :category: 3
 8800: 
   :glass: 4
   :ingredients: 
@@ -57552,13 +57529,6 @@
   - 115: 45.0
   :name: MARLON BRANDO
   :category: 1
-602: 
-  :glass: 15
-  :ingredients: 
-  - 334: 15.0
-  - 141: 30.0
-  :name: COWBOY COCKTAIL
-  :category: 3
 12899: 
   :glass: 3
   :ingredients: 
@@ -60886,12 +60856,6 @@
   - 327: 15.0
   :name: GRAPE WINE SPRITZER (2ND)
   :category: 1
-17039: 
-  :glass: 24
-  :ingredients: []
-
-  :name: INITIAL SHOCK
-  :category: 4
 21138: 
   :glass: 4
   :ingredients: 
@@ -67751,12 +67715,6 @@
   - 180: 960.0
   :name: MONARCHY LUAU PUNCH
   :category: 11
-23269: 
-  :glass: 15
-  :ingredients: 
-  - 353: 61.0
-  :name: MARNEY COCKTAIL
-  :category: 3
 6873: 
   :glass: 17
   :ingredients: 
@@ -67774,6 +67732,12 @@
   - 408: 15.0
   :name: ANTI-FREEZE (1ST)
   :category: 4
+23269: 
+  :glass: 15
+  :ingredients: 
+  - 353: 61.0
+  :name: MARNEY COCKTAIL
+  :category: 3
 27368: 
   :glass: 15
   :ingredients: 
@@ -68888,12 +68852,6 @@
   - 704: 30.0
   :name: EVERGLADE
   :category: 3
-25333: 
-  :glass: 7
-  :ingredients: []
-
-  :name: CAFE DI LIMONI
-  :category: 6
 27383: 
   :glass: 15
   :ingredients: 
@@ -76570,12 +76528,6 @@
   - 64: 20.0
   :name: SAN FRANCISCO
   :category: 1
-23378: 
-  :glass: 2
-  :ingredients: []
-
-  :name: LUNG-OUT
-  :category: 4
 9032: 
   :glass: 1
   :ingredients: 
@@ -80099,12 +80051,6 @@
   - 65: 30.0
   :name: FRENCH DREAM
   :category: 8
-23425: 
-  :glass: 2
-  :ingredients: []
-
-  :name: STEALTH
-  :category: 4
 7029: 
   :glass: 1
   :ingredients: 
@@ -84120,12 +84066,6 @@
   - 68: 15.0
   :name: HAZELNUT VODKA PUNCH (2ND)
   :category: 1
-21424: 
-  :glass: 15
-  :ingredients: []
-
-  :name: BENTLEY COCKTAIL
-  :category: 3
 15276: 
   :glass: 3
   :ingredients: 
@@ -101182,12 +101122,6 @@
   - 71: 30.0
   :name: GENTLEMAN JACK, THE NOT SO GENTLE MARTINI
   :category: 1
-17525: 
-  :glass: 24
-  :ingredients: []
-
-  :name: "649"
-  :category: 4
 21624: 
   :glass: 21
   :ingredients: 
@@ -101543,12 +101477,6 @@
   - 290: 53.0
   :name: GODIVA ALMOND JOY
   :category: 8
-21628: 
-  :glass: 2
-  :ingredients: []
-
-  :name: INTERNATIONAL
-  :category: 4
 15480: 
   :glass: 3
   :ingredients: 
@@ -102098,12 +102026,6 @@
   - 68: 8.0
   :name: KIWI SANGRIA (1ST)
   :category: 1
-21635: 
-  :glass: 4
-  :ingredients: []
-
-  :name: IRISH RASPBERRY
-  :category: 4
 25734: 
   :glass: 1
   :ingredients: 
@@ -104166,12 +104088,6 @@
   - 7: 180.0
   :name: JAK'D
   :category: 8
-21659: 
-  :glass: 2
-  :ingredients: []
-
-  :name: JELLY DONUT
-  :category: 4
 25758: 
   :glass: 3
   :ingredients: 
@@ -106765,12 +106681,6 @@
   - 68: 15.0
   :name: KIWI ZIMA PINEAPPLE JUICE (2ND)
   :category: 1
-21688: 
-  :glass: 2
-  :ingredients: []
-
-  :name: LEG SPREADER SHOOTER
-  :category: 4
 27837: 
   :glass: 15
   :ingredients: 
@@ -107530,16 +107440,6 @@
   - 68: 15.0
   :name: PEARL HARBOUR (SHOOTER)
   :category: 5
-9400: 
-  :glass: 1
-  :ingredients: 
-  - 89: 45.0
-  - 13: 45.0
-  - 155: 150.0
-  - 37: 45.0
-  - 68: 240.0
-  :name: MARTIAN URINE SAMPLE
-  :category: 1
 1202: 
   :glass: 1
   :ingredients: 
@@ -107558,6 +107458,16 @@
   - 43: 4.0
   :name: BLACKOUT
   :category: 3
+9400: 
+  :glass: 1
+  :ingredients: 
+  - 89: 45.0
+  - 13: 45.0
+  - 155: 150.0
+  - 37: 45.0
+  - 68: 240.0
+  :name: MARTIAN URINE SAMPLE
+  :category: 1
 11450: 
   :glass: 3
   :ingredients: 
@@ -119337,12 +119247,6 @@
   - 141: 30.0
   :name: MANGO DREAMSICLE (2ND)
   :category: 1
-17736: 
-  :glass: 2
-  :ingredients: []
-
-  :name: 649-CLASSIC
-  :category: 4
 30033: 
   :glass: 4
   :ingredients: 
@@ -122210,12 +122114,6 @@
   - 82: 10.0
   :name: STAR COCKTAIL NO 1
   :category: 5
-21868: 
-  :glass: 1
-  :ingredients: []
-
-  :name: OCEAN BREEZE
-  :category: 1
 5472: 
   :glass: 3
   :ingredients: 
@@ -122282,12 +122180,6 @@
   - 132: 120.0
   :name: OGRE DRINK
   :category: 8
-21869: 
-  :glass: 4
-  :ingredients: []
-
-  :name: OCEAN BREEZE SHOOTER
-  :category: 4
 1374: 
   :glass: 15
   :ingredients: 
@@ -124807,12 +124699,6 @@
   - 30: 15.0
   :name: BERRY MARGARITA
   :category: 8
-23945: 
-  :glass: 4
-  :ingredients: []
-
-  :name: BAITREAU
-  :category: 3
 25995: 
   :glass: 15
   :ingredients: 
@@ -127446,12 +127332,6 @@
   - 15: 45.0
   :name: RUM COKE FLOAT
   :category: 1
-21925: 
-  :glass: 2
-  :ingredients: []
-
-  :name: RASPBERRY SHORTCAKE
-  :category: 4
 5529: 
   :glass: 3
   :ingredients: 
@@ -129151,12 +129031,6 @@
   - 34: 30.0
   :name: BULLS SWEAT
   :category: 1
-23993: 
-  :glass: 21
-  :ingredients: []
-
-  :name: EVENING SUN
-  :category: 14
 30142: 
   :glass: 21
   :ingredients: 
@@ -133044,14 +132918,6 @@
   - 8: 15.0
   :name: ON THE MOVE
   :category: 5
-7638: 
-  :glass: 2
-  :ingredients: 
-  - 93: 30.0
-  - 37: 30.0
-  - 28: 30.0
-  :name: MARTIAN HARD ON
-  :category: 1
 3539: 
   :glass: 2
   :ingredients: 
@@ -133060,6 +132926,14 @@
   - 202: 10.0
   :name: CANDY CANE
   :category: 4
+7638: 
+  :glass: 2
+  :ingredients: 
+  - 93: 30.0
+  - 37: 30.0
+  - 28: 30.0
+  :name: MARTIAN HARD ON
+  :category: 1
 11737: 
   :glass: 3
   :ingredients: 
@@ -146836,12 +146710,6 @@
   - 48: 30.0
   :name: AMERICAN COBBLER
   :category: 2
-20072: 
-  :glass: 7
-  :ingredients: []
-
-  :name: HONEY TEA
-  :category: 9
 24171: 
   :glass: 15
   :ingredients: 
@@ -151482,12 +151350,6 @@
   - 314: 50.0
   :name: THE ITALIAN
   :category: 5
-20120: 
-  :glass: 4
-  :ingredients: []
-
-  :name: ST MORITZ
-  :category: 1
 7823: 
   :glass: 1
   :ingredients: 
@@ -156103,12 +155965,6 @@
   - 17: 30.0
   :name: EIGHT INCH TONGUE
   :category: 6
-20168: 
-  :glass: 2
-  :ingredients: []
-
-  :name: ANGEL'S HIP SHOOTER
-  :category: 4
 18119: 
   :glass: 3
   :ingredients: 
@@ -156571,12 +156427,6 @@
   - 267: 1.0
   :name: CANDY APPLE
   :category: 1
-20173: 
-  :glass: 2
-  :ingredients: []
-
-  :name: APPLE AND SPICE SHOOTER
-  :category: 4
 1728: 
   :glass: 3
   :ingredients: 
@@ -157427,14 +157277,6 @@
   - 130: 15.0
   :name: NECTARINE VODKA COOLER (2ND)
   :category: 1
-18132: 
-  :glass: 15
-  :ingredients: 
-  - 92: 90.0
-  - 43: 45.0
-  - 360: 1.0
-  :name: MARTINET
-  :category: 2
 9934: 
   :glass: 2
   :ingredients: 
@@ -157443,6 +157285,14 @@
   - 7: 30.0
   :name: IMMACULATE INGESTION
   :category: 4
+18132: 
+  :glass: 15
+  :ingredients: 
+  - 92: 90.0
+  - 43: 45.0
+  - 360: 1.0
+  :name: MARTINET
+  :category: 2
 7885: 
   :glass: 15
   :ingredients: 
@@ -161369,12 +161219,6 @@
   - 97: 30.0
   :name: WICKED MANHATTAN
   :category: 1
-22273: 
-  :glass: 2
-  :ingredients: []
-
-  :name: U-Z
-  :category: 4
 18174: 
   :glass: 18
   :ingredients: 
@@ -166234,14 +166078,6 @@
   - 536: 20.0
   :name: STRIKE!
   :category: 5
-24370: 
-  :glass: 1
-  :ingredients: 
-  - 9: 184.0
-  - 82: 82.0
-  - 7: 31.0
-  :name: MARLIN
-  :category: 3
 3875: 
   :glass: 3
   :ingredients: 
@@ -166283,6 +166119,14 @@
   - 9: 38.0
   - 259: 38.0
   :name: KISS ME BABY
+  :category: 3
+24370: 
+  :glass: 1
+  :ingredients: 
+  - 9: 184.0
+  - 82: 82.0
+  - 7: 31.0
+  :name: MARLIN
   :category: 3
 18222: 
   :glass: 5
@@ -179744,12 +179588,6 @@
   - 755: 2.0
   :name: ELECTRIC CHAIR
   :category: 5
-24511: 
-  :glass: 2
-  :ingredients: []
-
-  :name: STORMIN'  NORMAN
-  :category: 4
 16313: 
   :glass: 1
   :ingredients: 

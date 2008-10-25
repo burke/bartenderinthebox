@@ -9,12 +9,18 @@ require 'yaml'
 
 DATA_PATH = File.join(File.dirname(__FILE__),'/..')
 
-db = SQLite3::Database.new( File.join(DATA_PATH,'/btb.sqlite3') )
+database = SQLite3::Database.new( File.join(DATA_PATH,'/btb.sqlite3') )
 drinks = YAML.load(File.open(File.join(DATA_PATH,'/drinks.yml')))
 
-drinks.each do |drink_id, drink_data|
-  db.execute( "insert into drinks ( id, name ) values ( ?, ? )", drink_id, drink_data[:name])
-  v[:ingredients].each do |ingredient_id, ingredient_quantity|
-    db.execute( "insert into recipe_items ( drink_id, ingredient_id, quantity ) values ( ?, ?, ? )", drink_id, ingredient_id, ingredient_quantity)
-  end rescue nil
+puts "Loaded data. Writing to DB."
+
+database.transaction do |db|
+  drinks.each do |drink_id, drink_data|
+    db.execute( "insert into drinks ( id, name, category_id, glass_id ) values ( ?, ?, ?, ? )", drink_id, drink_data[:name], drink_data[:category_id], drink_data[:glass_id])
+    drink_data[:ingredients].each do |ingred|
+      ingredient_id = ingred.keys.first
+      quantity      = ingred.values.first
+      db.execute( "insert into recipe_items ( drink_id, ingredient_id, quantity ) values ( ?, ?, ? )", drink_id, ingredient_id, quantity)
+    end
+  end
 end

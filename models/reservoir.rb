@@ -1,12 +1,8 @@
-# Maintains the state of a physical reservoir.
-class Reservoir
+# ingredient_id
+# bay
 
-  attr_reader :bay, :contents
-
-  def initialize( bay, contents )
-    @bay      = bay
-    @contents = contents
-  end
+class Reservoir < ActiveRecord::Base
+  belongs_to :ingredient
 
   # Obviously this will change when there's actually hardware to control...
   def dispense( ml )
@@ -28,5 +24,4 @@ class Reservoir
   def stop_pump
     # do something eventually...
   end
-
 end

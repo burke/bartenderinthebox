@@ -2,6 +2,8 @@ ActiveRecord::Schema.define(:version => 1) do
 
   create_table "drinks", :force => true do |t|
     t.string   "name"
+    t.integer  "category_id"
+    t.integer  "glass_id"
   end
 
   create_table "ingredients", :force => true do |t|
@@ -20,8 +22,8 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table "reservoirs", :force => true do |t|
     t.integer  "ingredient_id"
     t.integer  "bay"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
+
+  add_index "reservoirs", ["ingredient_id"], :name => "index_ingredients_on_reservoirs"
 
 end
