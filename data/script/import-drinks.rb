@@ -1,3 +1,9 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'rubygems'
+rescue LoadError
+end
 require 'sqlite3'
 require 'yaml'
 
