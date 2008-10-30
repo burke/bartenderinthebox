@@ -25,21 +25,6 @@ class BartenderInTheBox
     @available_drinks = Drink.find_available
   end
 
-  def mix( id )
-    drink = Drink.find(id)
-    $log.info "Starting mixing of D##{id} (#{drink.name})"
-    threads = []
-    drink.recipe_items.each do |r_item|
-      threads << Thread.new do
-        reservoir = Reservoir.find_by_ingredient_id(r_item.ingredient_id)
-        $log.debug "Activating Reservoir R##{reservoir.bay} for #{r_item.quantity} mL of I##{r_item.ingredient_id}."
-        reservoir.dispense( r_item.quantity )
-        $log.debug "Finished dispensing I##{r_item.ingredient_id}"
-      end
-    end
-    threads.each{ |t| t.join }
-    $log.info "Finished mixing D##{id} (#{drink.name})"
-  end
 end
 
 if __FILE__ == $0
