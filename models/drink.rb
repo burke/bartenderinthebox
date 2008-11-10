@@ -11,12 +11,32 @@ class Drink < ActiveRecord::Base
   end
 
   def self.find_available
-    inventory = Reservoir.find(:all).map{|r|r.ingredient_id}
-
-    Drink.find(:all).select do |drink|
-      (drink.ingredients.map{|r|r.id} - inventory) == []
-    end
+  
+    Drink.find_by_sql( <<-"END"
+      SELECT * FROM drinks WHERE id IN (
+        SELECT d FROM (
+          SELECT DISTINCT drinks.id AS d
+          FROM drinks 
+          INNER JOIN recipe_items ON drinks.id = recipe_items.drink_id 
+          LEFT OUTER JOIN reservoirs ON recipe_items.ingredient_id = reservoirs.ingredient_id
+          WHERE reservoirs.id NOT NULL
+        )
+        EXCEPT 
+          SELECT d2 FROM (
+            SELECT DISTINCT drinks.id AS d2
+            FROM drinks 
+            INNER JOIN recipe_items ON drinks.id = recipe_items.drink_id 
+            LEFT OUTER JOIN reservoirs ON recipe_items.ingredient_id = reservoirs.ingredient_id
+            WHERE reservoirs.id IS NULL
+          )
+        )
+      ;
+      END
+    )
+  
   end
+  
+  
 
   def mix
     $log.info "Starting mixing of D##{id} (#{name})"
