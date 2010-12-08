@@ -3,9 +3,7 @@ class Drink < ActiveRecord::Base
   has_many :ingredients, :through => :recipe_items
 
   def available?
-    inventory = Reservoir.find(:all).map{|r|r.ingredient_id}
-    (ingredients.map{|r|r.id} - inventory) == []
-    # ingredients.all?{|i| i.available?}
+    ingredients.all?(&:available?)
   end
 
   scope :available, where(<<-SQL)
@@ -35,18 +33,13 @@ class Drink < ActiveRecord::Base
   SQL
 
   def mix
-    $log.info "Starting mixing of D##{id} (#{name})"
-    threads = []
-    recipe_items.each do |r_item|
-      threads << Thread.new do
-        reservoir = Reservoir.find_by_ingredient_id(r_item.ingredient_id)
-        $log.debug "Activating Reservoir R##{reservoir.bay} for #{r_item.quantity} mL of I##{r_item.ingredient_id}."
-        reservoir.dispense( r_item.quantity )
-        $log.debug "Finished dispensing I##{r_item.ingredient_id}"
-      end
-    end
-    threads.each{ |t| t.join }
-    $log.info "Finished mixing D##{id} (#{name})"
+    recipe_items.map do |r_item|
+      Thread.new { 
+        Reservoir.
+          find_by_ingredient_id(r_item.ingredient_id).
+          dispense( r_item.quantity )
+      }
+    end.map(&:join)
   end
 
 
