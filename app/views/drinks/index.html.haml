@@ -1,0 +1,7 @@
+%h1 Available Drinks
+
+%table
+  - @drinks.each do |drink|
+    %tr
+      %td= link_to drink.name, mix_drink_path(drink)
+  
