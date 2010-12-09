@@ -33,13 +33,9 @@ class Drink < ActiveRecord::Base
   SQL
 
   def mix
-    recipe_items.map do |r_item|
-      Thread.new { 
-        Reservoir.
-          find_by_ingredient_id(r_item.ingredient_id).
-          dispense( r_item.quantity )
-      }
-    end.map(&:join)
+    recipe_items.map { |recipe_item|
+      Thread.new { recipe_item.dispense }
+    }.map(&:join)
   end
 
 
